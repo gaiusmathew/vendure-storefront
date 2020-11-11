@@ -10,6 +10,7 @@ import { CheckoutProcessComponent } from './components/checkout-process/checkout
 import { CheckoutShippingComponent } from './components/checkout-shipping/checkout-shipping.component';
 import { CheckoutSignInComponent } from './components/checkout-sign-in/checkout-sign-in.component';
 import { CheckoutStageIndicatorComponent } from './components/checkout-stage-indicator/checkout-stage-indicator.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
 const DECLARATIONS = [
     CheckoutConfirmationComponent,
@@ -25,6 +26,7 @@ const DECLARATIONS = [
     imports: [
         SharedModule,
         RouterModule.forChild(routes),
+        NgxStripeModule.forRoot('pk_test_51HYtYtA0YZ3LYTkBHuWTkKkCkMcMpJp0LyZKNdOr2IsDY0RvlmY0I2YzAyJHvoJWwvqzL79agz6GT7u2wiEIETrO00Q3k42t1B'),
     ],
 })
 export class CheckoutModule {

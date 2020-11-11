@@ -1,7 +1,7 @@
 <div class="alert alert-danger" role="alert" *ngIf="paymentErrorMessage">
     {{ paymentErrorMessage }}
 </div>
-<form class="payment-form mb-5" #paymentForm="ngForm" (submit)="completeOrder()">
+<!-- <form class="payment-form mb-5" #paymentForm="ngForm" (submit)="completeOrder()">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
         <span class="input-group-text">
@@ -34,4 +34,22 @@
 
     <button class="btn btn-primary btn-lg"
             [disabled]="paymentForm.pristine || paymentForm.invalid">Complete order</button>
-</form>
+</form> -->
+
+<!-- <div [formGroup]="stripeTest">
+    <ngx-stripe-card
+        [options]="cardOptions"
+        [elementsOptions]="elementsOptions"
+    ></ngx-stripe-card>
+    <button type="submit" (click)="pay()">PAY</button>
+</div> -->
+<form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+    <input type="text" formControlName="name" placeholder="Jane Doe">
+    <ngx-stripe-card
+      [options]="cardOptions"
+      [elementsOptions]="elementsOptions"
+    ></ngx-stripe-card>
+    <button type="submit">
+      CREATE TOKEN
+    </button>
+  </form>
